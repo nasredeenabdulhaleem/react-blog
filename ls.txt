@@ -1,0 +1,279 @@
+<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/mj"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+							<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/ml"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+							<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/moj"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+							<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/mkj"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+							<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/mlj"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+							<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/amj"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+							<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/mnj"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+							<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/mcj"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
+							<Grid item xs={4} sm={4} md={4}>
+								<Card
+									sx={{ maxWidth: 345 }}
+									style={{ backgroundColor: "#014a4d" }}
+								>
+									<CardMedia
+										sx={{ height: 140 }}
+										image="https://robohash.org/mjlo"
+										title="green iguana"
+										className="card-img"
+									/>
+									<CardContent>
+										<Typography gutterBottom variant="h5" component="div">
+											Robo friend
+										</Typography>
+										<Typography variant="body2" color="text.primary">
+											Lizards are a widespread group of squamate reptiles, with
+											over 6,000 species, ranging across all continents except
+											Antarctica
+										</Typography>
+									</CardContent>
+									<CardActions>
+										<Button size="small" variant="outlined" color="warning">
+											Share
+										</Button>
+										<Button size="small" variant="outlined" color="warning">
+											Learn More
+										</Button>
+									</CardActions>
+								</Card>
+							</Grid>
