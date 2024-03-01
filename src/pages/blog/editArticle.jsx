@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import  axiosInstance from "../../config/axios"
 import { useContext } from "react";
@@ -6,6 +7,8 @@ import AuthContext from "../../context/AuthContext";
 
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/usefetch";
+
+const BACKEND_URL = process.env.REACT_APP_BACKENDURL;
 
 function ArticleEdit() {
 
@@ -18,10 +21,11 @@ function ArticleEdit() {
   const [tag, setTag] = useState(null)
   const [isPending, setIsPending] = useState(true)
   const [success, setSuccess] = useState(false)
+  // eslint-disable-next-line no-unused-vars
   const { data: categories, isPending: pend, error: err } = useFetch(
-    "http://127.0.0.1:8000/api/category/"
+    `${BACKEND_URL}/category/`
   );
-  const { data: tags, isPending: pending, error: error } = useFetch("http://127.0.0.1:8000/api/tags/");
+  const { data: tags, isPending: pending, error } = useFetch(`${BACKEND_URL}/tags/`);
 
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -47,7 +51,7 @@ const handleFileChange = (event) => {
     e.preventDefault();
     console.log("delete")
     let deleteArticle = async (data) => {
-      let response = fetch(`http://127.0.0.1:8000/api/${articleid}/delete/`, {
+      let response = fetch(`${BACKEND_URL}/${articleid}/delete/`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +111,7 @@ const handleFileChange = (event) => {
       formData.append('tag', tag);
    
     let submit = async (data) => {
-      let response = fetch(`http://127.0.0.1:8000/api/${articleid}/update/`, {
+      let response = fetch(`${BACKEND_URL}/${articleid}/update/`, {
         method: 'PUT',
         headers: {
           // 'Content-Type': 'application/json',
@@ -137,7 +141,7 @@ const handleFileChange = (event) => {
   useEffect(() => {
 
 
-    fetch("http://127.0.0.1:8000/api/detail/" + articleid + '/', {
+    fetch(`${BACKEND_URL}/detail/` + articleid + '/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

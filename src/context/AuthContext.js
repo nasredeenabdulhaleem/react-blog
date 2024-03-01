@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode"
 import { useNavigate } from 'react-router-dom'
 
 const AuthContext = createContext()
+const BACKEND_URL = process.env.REACT_APP_BACKENDURL
 
 
 export default AuthContext
@@ -19,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
     let loginUser = async (e) => {
         e.preventDefault();
-        let response = await fetch('http://localhost:8000/api/token/', {
+        let response = await fetch(`${BACKEND_URL}token/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -48,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
     let updateToken = async () => {
         // console.log('update Token Called')
-        let response = fetch('http://localhost:8000/api/token/refresh/', {
+        let response = fetch(`${BACKEND_URL}/token/refresh/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

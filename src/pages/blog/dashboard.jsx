@@ -10,6 +10,8 @@ import AuthContext from "../../context/AuthContext";
 import ProfileCard from '../../components/ProfileCard';
 import DashboardBlogList from '../../components/DasboardBlogList';
 
+const BACKEND_URL = process.env.REACT_APP_BACKENDURL
+
 const Dashboard = () => {
     const [blogs, setBlog] = useState(null)
     const [isPending, setIsPending] = useState(true)
@@ -23,7 +25,7 @@ const Dashboard = () => {
     let navigate = useNavigate()
     useEffect(() => {
 
-        fetch('http://127.0.0.1:8000/api/author-article/',
+        fetch(`${BACKEND_URL}/author-article/`,
             {
                 headers: {
                     "CONTENT-TYPE": "application/json",
@@ -49,7 +51,7 @@ const Dashboard = () => {
             })
 
             // Get Author profile details
-            fetch('http://127.0.0.1:8000/api/author/detail/',
+            fetch(`${BACKEND_URL}author/detail/`,
             {
                 headers: {
                     "CONTENT-TYPE": "application/json",

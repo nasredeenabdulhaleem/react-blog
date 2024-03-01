@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import useFetch from "../hooks/usefetch";
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom'
 import AuthContext from "../context/AuthContext";
+
+const BACKEND_URL = process.env.REACT_APP_BACKENDURL
 
 const CreateArticle = () => {
   const navigate = useNavigate()
@@ -14,9 +17,9 @@ const CreateArticle = () => {
   const [tag, setTag] = useState("")
   const [success, setSuccess] = useState(false)
   const { data:categories, isPending:pend, error:err } = useFetch(
-    "http://127.0.0.1:8000/api/" + "category" + "/"
+    `${BACKEND_URL}/category/`
   );
-  const { data:tags, isPending:pending, error:error } = useFetch("http://127.0.0.1:8000/api/" + "tags" + "/");
+  const { data:tags, isPending:pending, error } = useFetch(`${BACKEND_URL}` + "/tags" + "/");
 //   console.log('category', category)  
 //   console.log('tag',tag)
 
@@ -53,7 +56,7 @@ const handleChange = (e) => {
       formData.append('tag', tag);
       
     let submit = async (data) => {
-        let response = fetch("http://127.0.0.1:8000/api/create/", {
+        let response = fetch(`${BACKEND_URL}/create/`, {
         method: 'POST',
         headers: {
             //'Content-Type': 'multipart/form-data',
