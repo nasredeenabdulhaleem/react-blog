@@ -1,8 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import AuthContext from '../context/AuthContext';
-import BlogList from '../components/list-blog';
+import React, { useContext, useEffect, useState } from 'react';
 import EditorsPickCarousel from '../components/EditorsPickCarousel';
+import BlogList from '../components/list-blog';
+import AuthContext from '../context/AuthContext';
+
+const backend_url = process.env.REACT_APP_BACKENDURL
+console.log(backend_url)
+
 
 function Home() {
 	const ITEMS_PER_PAGE = 10;
@@ -12,7 +16,7 @@ function Home() {
 	let { user } = useContext(AuthContext);
 
 	useEffect(() => {
-		axios.get('http://127.0.0.1:8000/api/')
+		axios.get(backend_url)
 			.then(response => {
 				if (!response.statusText) {
 					throw Error('Could not fetch the data for that resource');
@@ -38,7 +42,14 @@ function Home() {
 
 	return (
 		<div className="home">
-			{error && <div className="text-red-500 text-center">{error}</div>}
+			{error &&
+				<div className="flex items-center justify-center text-center text-red-500 bg-red-100 border border-red-400 rounded-lg p-4 m-4">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 mr-2 text-red-500">
+						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+					</svg>
+					There was an error loading this page. Please try again later.
+				</div>
+			}
 			{!error && (
 				<>
 					<header>

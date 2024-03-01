@@ -1,6 +1,7 @@
-import { createContext,useEffect,useState } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { createContext, useEffect, useState } from 'react'
 import jwt_decode from "jwt-decode"
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const AuthContext = createContext()
 
@@ -8,95 +9,95 @@ const AuthContext = createContext()
 export default AuthContext
 
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate();
 
-let [authTokens, setAuthTokens] = useState(()=>localStorage.getItem('authTokens')? JSON.parse(localStorage.getItem('authTokens')): null)
-let [user, setUser] = useState(()=> localStorage.getItem('authTokens')? jwt_decode(localStorage.getItem('authTokens')): null)
-let [loading, setLoading] = useState(true)
+    let [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
+    let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
+    let [loading, setLoading] = useState(true)
 
-let loginUser = async (e ) =>{
-    e.preventDefault();
-    let response = await fetch('http://localhost:8000/api/token/',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({'email':e.target.username.value, 'password':e.target.password.value})
-    })
-    let data = await (await response).json()
-    if ((await response).status === 200){
+    let loginUser = async (e) => {
+        e.preventDefault();
+        let response = await fetch('http://localhost:8000/api/token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({ 'email': e.target.username.value, 'password': e.target.password.value })
+        })
+        let data = await (await response).json()
+        if ((await response).status === 200) {
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
             navigate('/dashboard')
-    }else{
-        alert('sup')
+        } else {
+            alert('sup')
+        }
+
     }
 
-}
+    let logoutUser = () => {
+        setAuthTokens(null)
+        setUser(null)
+        localStorage.removeItem('authTokens')
+        navigate('/')
+    }
 
-let logoutUser = ()=>{
-    setAuthTokens(null)
-    setUser(null)
-    localStorage.removeItem('authTokens')
-    navigate('/')
-}
+    let updateToken = async () => {
+        // console.log('update Token Called')
+        let response = fetch('http://localhost:8000/api/token/refresh/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({ 'refresh': authTokens?.refresh })
+        })
 
-let updateToken = async ()=>{
-    console.log('update Token Called')
-    let response = fetch('http://localhost:8000/api/token/refresh/',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({'refresh':authTokens?.refresh})
-    })
+        let data = await (await response).json()
 
-    let data = await (await response).json()
-
-    if ((await response).status === 200){
-        setAuthTokens(data)
+        if ((await response).status === 200) {
+            setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-    }else{
-        logoutUser()
-    }
+        } else {
+            logoutUser()
+        }
 
-    if(loading){
-        setLoading(false)
-    }
+        if (loading) {
+            setLoading(false)
+        }
 
-}
+    }
 
     let contextData = {
-        authTokens:authTokens,
-        user:user,
-        loginUser : loginUser,
-        logoutUser:logoutUser
+        authTokens: authTokens,
+        user: user,
+        loginUser: loginUser,
+        logoutUser: logoutUser
     }
 
-useEffect(()=>{
+    useEffect(() => {
 
-        if(loading){
+        if (loading) {
             updateToken()
         }
 
-    let fourminutes = 1000*60*4
-    let interval = setInterval(()=>{
-         if(authTokens){
-            updateToken()
-         }
-    },fourminutes)
-    return()=> clearInterval(interval)
-},[authTokens, loading])
+        let fourminutes = 1000 * 60 * 4315
+        let interval = setInterval(() => {
+            if (authTokens) {
+                updateToken()
+            }
+        }, fourminutes)
+        return () => clearInterval(interval)
+    }, [authTokens, loading])
 
-    return(
+    return (
         <AuthContext.Provider value={contextData}>
-            {loading ? null :children}
+            {loading ? null : children}
         </AuthContext.Provider>
     )
 }
