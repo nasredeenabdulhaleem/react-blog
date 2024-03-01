@@ -19,7 +19,7 @@ const CreateArticle = () => {
   const { data:categories, isPending:pend, error:err } = useFetch(
     `${BACKEND_URL}/category/`
   );
-  const { data:tags, isPending:pending, error } = useFetch(`${BACKEND_URL}` + "/tags" + "/");
+  const { data:tags, isPending:pending, error } = useFetch(`${BACKEND_URL}/tags/`);
 //   console.log('category', category)  
 //   console.log('tag',tag)
 

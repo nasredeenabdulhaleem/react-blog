@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState } from 'react'
 import jwt_decode from "jwt-decode"
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 const AuthContext = createContext()
 const BACKEND_URL = process.env.REACT_APP_BACKENDURL
@@ -20,22 +21,29 @@ export const AuthProvider = ({ children }) => {
 
     let loginUser = async (e) => {
         e.preventDefault();
-        let response = await fetch(`${BACKEND_URL}token/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            body: JSON.stringify({ 'email': e.target.username.value, 'password': e.target.password.value })
-        })
-        let data = await (await response).json()
-        if ((await response).status === 200) {
-            setAuthTokens(data)
-            setUser(jwt_decode(data.access))
-            localStorage.setItem('authTokens', JSON.stringify(data))
-            navigate('/dashboard')
-        } else {
-            alert('sup')
+        try {
+            let response = await axios.post(`${BACKEND_URL}token/`, {
+                email: e.target.username.value,
+                password: e.target.password.value
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                }
+            });
+
+            let data = response.data;
+            if (response.status === 200) {
+                setAuthTokens(data);
+                setUser(jwt_decode(data.access));
+                localStorage.setItem('authTokens', JSON.stringify(data));
+                navigate('/dashboard');
+            } else {
+                alert('sup');
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+            // Handle the error appropriately here
         }
 
     }
@@ -48,6 +56,10 @@ export const AuthProvider = ({ children }) => {
     }
 
     let updateToken = async () => {
+        if (!authTokens?.refresh) {
+            logoutUser();
+        }
+
         // console.log('update Token Called')
         let response = fetch(`${BACKEND_URL}/token/refresh/`, {
             method: 'POST',
